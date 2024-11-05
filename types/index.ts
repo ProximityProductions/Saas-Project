@@ -7,4 +7,5 @@ export interface  Video{
     createdAt: Date;
     publicId: string;
     duration: number;
+    updatedAt: Date;
 }
