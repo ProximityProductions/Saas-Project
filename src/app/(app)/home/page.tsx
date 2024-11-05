@@ -17,9 +17,10 @@ export default function Home() {
       } else {
         throw new Error("Invalid response or unexpected response format");
       }
-    } catch (error) {
+    } catch (error:any) {
       console.log(error);
-      setError("Failed to fetch videos");
+      setError(`Failed to fetch videos: ${error.message}`);
+
     } finally {
       setLoading(false);
     }
