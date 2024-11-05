@@ -93,7 +93,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onDownload }) => {
             alt={video.title}
             className="object-cover w-full h-full"
             />
-        )}
+          )}
         <div className="absolute bottom-2 right-2 bg-base-100 bg-opacity-70 px-2 py-1 rounded-lg text-sm flex items-center">
             <Clock size={16} className="mr-1"></Clock>{formatDuration(video.duration)}
         </div>
@@ -102,24 +102,26 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onDownload }) => {
             <h2 className="card-title text-lg font-bold">{video.title}</h2>
             <p className="text-sm text-base-content opacity-70 mb-4">{video.description}</p>
             <p className="text-sm text-base-content opacity-70">Uploaded {dayjs(video.createdAt).fromNow()}</p>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-2 gap-4 text-sm mt-2">
                 <div className="flex items-center">
-                    <FileUp size= {18} className="mr-2 text-primary"></FileUp>
-                    <div className="font-semibold">Orignal</div>
+                  <FileUp size={18} className="mr-2 text-primary" />
+                  <div>
+                    <div className="font-semibold">Original</div>
                     <div>{formatSize(Number(video.originalSize))}</div>
+                  </div>
                 </div>
-            </div>
-            <div className="flex items-center">
-              <FileDown size={18} className="mr-2 text-secondary"></FileDown>
-              <div>
-                <div  className="font-semibold">Compressed</div>
-                <div>{formatSize(Number(video.compressedSize))}</div>
+                <div className="flex items-center">
+                  <FileDown size={18} className="mr-2 text-secondary" />
+                  <div>
+                    <div className="font-semibold">Compressed</div>
+                    <div>{formatSize(Number(video.compressedSize))}</div>
+                  </div>
+                </div>
               </div>
-            </div>
         </div>
         <div className="flex justify-between items-center mt-4">
           <div className="text-sm font-semibold">
-            Compression"{""}
+            Compression{""}
           </div>
           <span className="text-accent">{compressionPercentage}%</span>
         </div>

@@ -3,9 +3,8 @@ import axios from "axios";
 import React, { useState, useEffect, useCallback } from "react";
 import VideoCard from "../../../../components/VideoCard";
 import { Video } from "../../../../types";
-import { Divide } from "lucide-react";
 
-function Home() {
+export default function Home() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -31,15 +30,13 @@ function Home() {
   }, [fetchVideos]);
 
   const handleDownload = useCallback((url: string, title: string) => {
-    () => {
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", `${title}.mp4`);
-      link.setAttribute("target", "_blank");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    };
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `${title}.mp4`);
+    link.setAttribute("target", "_blank");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }, []);
 
   if (loading) {
@@ -70,4 +67,4 @@ function Home() {
   );
 }
 
-export default Home;
+
