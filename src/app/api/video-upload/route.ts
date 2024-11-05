@@ -19,7 +19,7 @@ interface CloudinaryUploadResult {
 }
 
 export async function POST(request: NextRequest) {
-  const { userId } = await auth(request);
+  const { userId } = await auth();
   // console.log("userId", userId);
 
   try {
@@ -43,9 +43,9 @@ export async function POST(request: NextRequest) {
     // Retrieve and validate form data
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
-    const title = formData.get("title") as string | null;
-    const description = formData.get("description") as string | null;
-    const originalSize = formData.get("orignalSize") as string | null;
+    const title = formData.get("title") as string ;
+    const description = formData.get("description") as string ;
+    const originalSize = formData.get("orignalSize") as string ;
 
     if (!file) {
       return NextResponse.json(

@@ -56,7 +56,7 @@ export default function Home() {
           {
             videos.map((video) => (
               <VideoCard
-                key={video.id}
+                key={String(video.id)}
                 video={video}
                 onDownload={handleDownload}
               />

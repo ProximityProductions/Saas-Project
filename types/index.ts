@@ -1,9 +1,9 @@
 export interface  Video{
-    id: number;
+    id: string;
     title: string;
     description: string;
-    originalSize: number;
-    compressedSize: number;
+    originalSize: string;
+    compressedSize: string;
     createdAt: Date;
     publicId: string;
     duration: number;
